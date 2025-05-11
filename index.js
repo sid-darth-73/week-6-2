@@ -63,7 +63,7 @@ app.post("/signin", logger, function(req, res) {
         })
     }
 })
-
+// middleware for all methods, so that we do not repeat the process of validating the user in each Mehtod
 function auth(req, res, next) {
     const token = req.headers.token;
     const decodedData = jwt.verify(token, JWT_SECRET);
